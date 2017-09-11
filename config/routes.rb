@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  namespace :user do
-    resources :cards
-  end
+  resources :user_cards
   resources :users
   get 'gacha/top'
 

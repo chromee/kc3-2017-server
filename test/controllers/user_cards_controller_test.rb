@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class User::CardsControllerTest < ActionDispatch::IntegrationTest
+class UserCardsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user_card = user_cards(:one)
   end
@@ -16,11 +16,11 @@ class User::CardsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create user_card" do
-    assert_difference('User::Card.count') do
-      post user_cards_url, params: { user_card: { card_it: @user_card.card_it, user_id: @user_card.user_id } }
+    assert_difference('UserCard.count') do
+      post user_cards_url, params: { user_card: { card_id: @user_card.card_id, user_id: @user_card.user_id } }
     end
 
-    assert_redirected_to user_card_url(User::Card.last)
+    assert_redirected_to user_card_url(UserCard.last)
   end
 
   test "should show user_card" do
@@ -34,12 +34,12 @@ class User::CardsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user_card" do
-    patch user_card_url(@user_card), params: { user_card: { card_it: @user_card.card_it, user_id: @user_card.user_id } }
+    patch user_card_url(@user_card), params: { user_card: { card_id: @user_card.card_id, user_id: @user_card.user_id } }
     assert_redirected_to user_card_url(@user_card)
   end
 
   test "should destroy user_card" do
-    assert_difference('User::Card.count', -1) do
+    assert_difference('UserCard.count', -1) do
       delete user_card_url(@user_card)
     end
 

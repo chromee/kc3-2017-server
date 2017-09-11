@@ -1,34 +1,34 @@
-class User::CardsController < ApplicationController
+class UserCardsController < ApplicationController
   before_action :set_user_card, only: [:show, :edit, :update, :destroy]
 
-  # GET /user/cards
-  # GET /user/cards.json
+  # GET /user_cards
+  # GET /user_cards.json
   def index
-    @user_cards = User::Card.all
+    @user_cards = UserCard.all
   end
 
-  # GET /user/cards/1
-  # GET /user/cards/1.json
+  # GET /user_cards/1
+  # GET /user_cards/1.json
   def show
   end
 
-  # GET /user/cards/new
+  # GET /user_cards/new
   def new
-    @user_card = User::Card.new
+    @user_card = UserCard.new
   end
 
-  # GET /user/cards/1/edit
+  # GET /user_cards/1/edit
   def edit
   end
 
-  # POST /user/cards
-  # POST /user/cards.json
+  # POST /user_cards
+  # POST /user_cards.json
   def create
-    @user_card = User::Card.new(user_card_params)
+    @user_card = UserCard.new(user_card_params)
 
     respond_to do |format|
       if @user_card.save
-        format.html { redirect_to @user_card, notice: 'Card was successfully created.' }
+        format.html { redirect_to @user_card, notice: 'User card was successfully created.' }
         format.json { render :show, status: :created, location: @user_card }
       else
         format.html { render :new }
@@ -37,12 +37,12 @@ class User::CardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user/cards/1
-  # PATCH/PUT /user/cards/1.json
+  # PATCH/PUT /user_cards/1
+  # PATCH/PUT /user_cards/1.json
   def update
     respond_to do |format|
       if @user_card.update(user_card_params)
-        format.html { redirect_to @user_card, notice: 'Card was successfully updated.' }
+        format.html { redirect_to @user_card, notice: 'User card was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_card }
       else
         format.html { render :edit }
@@ -51,12 +51,12 @@ class User::CardsController < ApplicationController
     end
   end
 
-  # DELETE /user/cards/1
-  # DELETE /user/cards/1.json
+  # DELETE /user_cards/1
+  # DELETE /user_cards/1.json
   def destroy
     @user_card.destroy
     respond_to do |format|
-      format.html { redirect_to user_cards_url, notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to user_cards_url, notice: 'User card was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +64,11 @@ class User::CardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user_card
-      @user_card = User::Card.find(params[:id])
+      @user_card = UserCard.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_card_params
-      params.require(:user_card).permit(:user_id, :card_it)
+      params.require(:user_card).permit(:user_id, :card_id)
     end
 end
