@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_card.user_id %>
+</p>
+
+<p>
+  <strong>Card it:</strong>
+  <%= @user_card.card_it %>
+</p>
+
+<%= link_to 'Edit', edit_user_card_path(@user_card) %> |
+<%= link_to 'Back', user_cards_path %>

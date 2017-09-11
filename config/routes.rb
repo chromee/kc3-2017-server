@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :user do
+    resources :cards
+  end
+  resources :users
   get 'gacha/top'
 
   get 'gacha/execute'
