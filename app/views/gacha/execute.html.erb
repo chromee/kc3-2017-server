@@ -1,0 +1,9 @@
+<h1>Gacha#execute</h1>
+
+<% if @card.present? %>
+  <p><%= image_tag @card.img_path %></p>
+  <p>カード名：<%= @card.name %></p>
+  <p>　レア度：<%= @card.rare_type %></p>
+<% end %>
+
+<p><%= link_to "戻る", gacha_top_path %>
